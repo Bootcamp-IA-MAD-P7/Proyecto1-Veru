@@ -27,7 +27,7 @@ def prizes():
 # Probado hasta aquí
 #______________________________________________________
 
-
+#prueba de sincronización
 
 def inicia():
     if input_inicio == 1:
@@ -45,5 +45,3 @@ bienvenida()
 inicio()
 calcula(300,1500)
 fin(precio)
-
-
