@@ -60,12 +60,15 @@ def opciones():
             'Trayecto finalizado. El precio es: precio')
             """
         )
-def calcula(tiempo_parado, tiempo_marcha):
-    precio_final = 0.002 * tiempo_parado + 0.005 * tiempo_marcha
+        
 
 #_____________________________________________________
-# Hasta aquí funciona, probado test
+# Hasta aquí funciona excepto moverse entre opciones, probado test
 #______________________________________________________
+
+
+def calcula(tiempo_parado, tiempo_marcha):
+    precio_final = 0.002 * tiempo_parado + 0.005 * tiempo_marcha
 
 def fin(precio):
 
