@@ -1,14 +1,25 @@
-def welcome():
-    print("""
-Bienvenide al programa
-1. Información de tarifas
-2. Empezar : Introduzca esta opción para empezar un trayecto
-3. Reaundar: Introduzca esta opción para pausar un trayecto
-4. Finalizar: Introduzca esta opción para finalizar un trayecto
- """)
+trayecto_inicio = 0
 
-def prizes():
-    elige_opcion = input("Introduce una opción del 1 al 4")
+def welcome():
+    print(
+    """
+    Bienvenide al programa")
+    """
+    )
+
+def display_opciones():
+    print(
+    """
+    1. Información de tarifas
+    2. Empezar un trayecto
+    3. Pausar un trayecto
+    4. Reaundar un trayecto
+    5. Finalizar un trayecto
+    """
+    )
+
+def opciones():
+    elige_opcion = input("Introduce un número del 1 al 5")
     if '1' in elige_opcion:
         print(
         f"""
@@ -18,30 +29,51 @@ def prizes():
         - Taxi en marcha = 5 céntimos por segundo.
         """
         )
-    cambio_opcion = input("Introduce el número 0 para volver")
-    if '1' in cambio_opcion:
-        welcome()
+        print(input("Introduce 2 para empezar el trayecto, 3 para reanudarlo o 4 para finalizarlo "))
 
+    elif '2' in elige_opcion:
+        print(
+            f"""
+            Has elegido el número:  {elige_opcion}
+            '¡Comenzamos!')
+            """
+        )
+        return trayecto_inicio
+    elif '3' in elige_opcion:
+        print(
+            f"""
+           Has elegido el número:  {elige_opcion} 
+            '¡Reaudando trayecto!')
+            """
+        )
+    elif '4' in elige_opcion:
+        print(
+            f"""
+            Has elegido el número:  {elige_opcion} 
+            'Trayecto reanudado. Llevas acumulado: x '
+            """
+        )
+    elif '5' in elige_opcion:
+        print(
+            f"""
+            Has elegido el númerp: {elige_opcion}
+            'Trayecto finalizado. El precio es: precio')
+            """
+        )
+def calcula(tiempo_parado, tiempo_marcha):
+    precio_final = 0.002 * tiempo_parado + 0.005 * tiempo_marcha
 
 #_____________________________________________________
-# Probado hasta aquí
+# Hasta aquí funciona, probado test
 #______________________________________________________
 
-#prueba de sincronización
-
-def inicia():
-    if input_inicio == 1:
-        print('¡Comenzamos!')
-
-def calcula(tiempo_parado, tiempo_marcha):
-    precio = 0.002 * tiempo_parado + 0.005 * tiempo_marcha
-
 def fin(precio):
-    if
+
     print(f"Trayecto finalizado. El precio final es: {precio}")
 
 
-bienvenida()
-inicio()
-calcula(300,1500)
-fin(precio)
+welcome()
+display_opciones()
+opciones()
+
+
