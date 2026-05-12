@@ -2,8 +2,8 @@ def welcome():
     print("""
 Bienvenide al programa
 1. Información de tarifas
-1. Empezar : Introduzca esta opción para empezar un trayecto
-2. Reaundar: Introduzca esta opción para pausar un trayecto
+2. Empezar : Introduzca esta opción para empezar un trayecto
+3. Reaundar: Introduzca esta opción para pausar un trayecto
 4. Finalizar: Introduzca esta opción para finalizar un trayecto
  """)
 
