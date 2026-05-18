@@ -49,7 +49,7 @@ def finish():
           )
 
 def restart():
-    nuevo_trayecto = input("Introduzca 'Empezar' para comenzar un nuevo trayecto")
+    nuevo_trayecto = input("Introduce 'Empezar' para comenzar un nuevo trayecto")
     if 'Empezar' in nuevo_trayecto:
         welcome()
 
