@@ -10,3 +10,6 @@ Desarrollar un programa CLI (Interfaz de Línea de Comandos) en Python.
         Finalizar un trayecto y mostrar el total en euros.
         Permitir iniciar un nuevo trayecto sin cerrar el programa.
 
+🟡 Nivel Medio
+
+    Implementar un sistema de logs para la trazabilidad del código.
