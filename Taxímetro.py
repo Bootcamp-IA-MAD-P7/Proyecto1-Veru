@@ -1,82 +1,61 @@
-trayecto_inicio = 0
+import time
+
+taxi_parado = True
+acumulado_parado = []
+acumulado_marcha = []
 
 def welcome():
     print(
     """
-    Bienvenide al programa")
+    Bienvenide al programa
+    Las tarifas son:
+    - Taxi parado = 2 céntimos por segundo.
+    - Taxi en marcha = 5 céntimos por segundo.
     """
     )
 
-def display_opciones():
-    print(
-    """
-    1. Información de tarifas
-    2. Empezar un trayecto
-    3. Pausar un trayecto
-    4. Reaundar un trayecto
-    5. Finalizar un trayecto
-    """
-    )
+def start():
+    inicio = input("Introduce 'Empezar' para iniciar el trayecto")
 
-def opciones():
-    elige_opcion = input("Introduce un número del 1 al 5")
-    if '1' in elige_opcion:
-        print(
-        f"""
-        Has elegido el número:  {elige_opcion}
-        Las tarifas son:
-        - Taxi parado = 2 céntimos por segundo.
-        - Taxi en marcha = 5 céntimos por segundo.
+    if 'Empezar' in inicio:
+        print("""
+        ¡Comenzamos!)
         """
         )
-        print(input("Introduce 2 para empezar el trayecto, 3 para reanudarlo o 4 para finalizarlo "))
-
-    elif '2' in elige_opcion:
-        print(
-            f"""
-            Has elegido el número:  {elige_opcion}
-            '¡Comenzamos!')
-            """
-        )
-        return trayecto_inicio
-    elif '3' in elige_opcion:
-        print(
-            f"""
-           Has elegido el número:  {elige_opcion} 
-            '¡Reaudando trayecto!')
-            """
-        )
-    elif '4' in elige_opcion:
-        print(
-            f"""
-            Has elegido el número:  {elige_opcion} 
-            'Trayecto reanudado. Llevas acumulado: x '
-            """
-        )
-    elif '5' in elige_opcion:
-        print(
-            f"""
-            Has elegido el númerp: {elige_opcion}
-            'Trayecto finalizado. El precio es: precio')
-            """
-        )
-        
-
-#_____________________________________________________
-# Hasta aquí funciona excepto moverse entre opciones, probado test
-#______________________________________________________
 
 
-def calcula(tiempo_parado, tiempo_marcha):
-    precio_final = 0.002 * tiempo_parado + 0.005 * tiempo_marcha
+def calculate():
+    if taxi_parado == True:
+        start_time_parado = time.time()
+        end_time_parado = time.time()
+        tiempo_parado = end_time_parado - start_time_parado
 
-def fin(precio):
+        acumulado_parado.append(tiempo_parado)
+        return acumulado_parado
 
-    print(f"Trayecto finalizado. El precio final es: {precio}")
+    if taxi_parado == False:
+        start_time_marcha = time.time()
+        end_time_marcha = time.time()
+        tiempo_marcha = end_time_marcha - start_time_marcha
+        acumulado_marcha.append(tiempo_marcha)
+        return acumulado_marcha
 
+def finish():
+    input("Introduce 'Finalizar' para terminar el trayecto")
+    precio_final = (0.002 * sum(acumulado_parado)) + (0.005 * sum(acumulado_marcha))
+    print(f"""
+    ¡Trayecto finalizado! El precio es: {precio_final} €
+    """
+          )
+
+def restart():
+    nuevo_trayecto = input("Introduzca 'Empezar' para comenzar un nuevo trayecto")
+    if 'Empezar' in nuevo_trayecto:
+        welcome()
 
 welcome()
-display_opciones()
-opciones()
-
+start()
+calculate()
+finish()
+restart()
 
