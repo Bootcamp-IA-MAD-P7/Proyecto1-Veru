@@ -1,14 +1,18 @@
 import time
+import logging
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 taxi_parado = True
 acumulado_parado = []
 acumulado_marcha = []
 
 
-def welcome():
+def menu():
     print(
     """
-    Bienvenide a TaxiVeru
+    ¡Bienvenide a TaxiVeru!
+    Estás en el menú principal.
     Las opciones disponibles son:
     - Empezar: Inicia un trayecto
     - Finalizar: Termina y ve el precio final
@@ -52,7 +56,7 @@ def finish():
         return restart()
 
     else:
-       print("Escribiste mal la palabra, debes escribir la palabra 'Empezar'. Inténtalo de nuevo")
+       logging.error("Escribiste mal la palabra, debes escribir la palabra 'Empezar'. Inténtalo de nuevo")
        start(), calculate(), finish(), restart()
        return finish()
 
@@ -61,12 +65,12 @@ def restart():
     while 'Reiniciar' in nuevo_trayecto or 'reiniciar' in nuevo_trayecto:
         return main()
     else:
-        print("Escribiste mal la palabra. Debes escribir la palabra 'Reiniciar'. Inténtalo de nuevo")
+        logging.error("Escribiste mal la palabra. Debes escribir la palabra 'Reiniciar'. Inténtalo de nuevo")
         return restart()
 
 
 def main():
-    welcome()
+    menu()
     inicio = input("Introduce 'Empezar' para iniciar el trayecto")
 
     while 'Empezar' in inicio or 'empezar' in inicio:
@@ -74,7 +78,7 @@ def main():
 
 
     while not 'empezar' in inicio or not 'Empezar' in inicio:
-        print("Escribiste mal la palabra, debes escribir la palabra 'Empezar'. Inténtalo de nuevo")
+        logging.error("Escribiste mal la palabra, debes escribir la palabra 'Empezar'. Inténtalo de nuevo")
         main()
 
 main()
