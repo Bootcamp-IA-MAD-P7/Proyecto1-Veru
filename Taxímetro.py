@@ -4,6 +4,7 @@ taxi_parado = True
 acumulado_parado = []
 acumulado_marcha = []
 
+
 def welcome():
     print(
     """
@@ -13,15 +14,6 @@ def welcome():
     - Taxi en marcha = 5 céntimos por segundo.
     """
     )
-
-def start():
-    inicio = input("Introduce 'Empezar' para iniciar el trayecto")
-
-    if 'Empezar' in inicio:
-        print("""
-        ¡Comenzamos!)
-        """
-        )
 
 
 def calculate():
@@ -41,21 +33,35 @@ def calculate():
         return acumulado_marcha
 
 def finish():
-    input("Introduce 'Finalizar' para terminar el trayecto")
+    trayecto_finalizado = input("Introduce 'Finalizar' para terminar el trayecto")
     precio_final = (0.002 * sum(acumulado_parado)) + (0.005 * sum(acumulado_marcha))
-    print(f"""
-    ¡Trayecto finalizado! El precio es: {precio_final} €
-    """
+    while 'Finalizar' in trayecto_finalizado:
+        print(f"""
+        ¡Trayecto finalizado! El precio es: {precio_final} €
+        """
           )
+    while not 'Finalizar' in trayecto_finalizado:
+        input("Debes escribir la palabra 'Finalizar'")
 
 def restart():
-    nuevo_trayecto = input("Introduce 'Empezar' para comenzar un nuevo trayecto")
-    if 'Empezar' in nuevo_trayecto:
+    nuevo_trayecto = input("Introduzca 'Empezar' para comenzar un nuevo trayecto")
+    while 'Empezar' in nuevo_trayecto:
         welcome()
+    while not 'Empezar' in nuevo_trayecto:
+        input("Debes escribir la palabra 'Empezar'")
 
-welcome()
-start()
-calculate()
-finish()
-restart()
 
+def main():
+    welcome()
+    inicio = input("Introduce 'Empezar' para iniciar el trayecto")
+
+    while 'Empezar' in inicio:
+        print("""
+        ¡Comenzamos!)
+        """
+              )
+        calculate()
+        finish()
+        restart()
+    while not 'Empezar' in inicio:
+        input("Debes escribir la palabra 'Empezar'")
